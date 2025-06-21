@@ -1,0 +1,11 @@
+article {
+  header {
+    margin-block-start: 4rem;
+
+    .header__taglist span:not(:last-child):after {
+      content: ",";
+      color: var(--neutral-700);
+      padding-inline-end: .3rem;
+    }
+  }
+}

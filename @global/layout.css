@@ -1,0 +1,99 @@
+
+/* CSS reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+/* links */
+a {
+  text-decoration: none;
+
+  /* navigational links */
+  nav & {
+    font-weight: 500;
+    color: var(--neutral-900);
+
+    &[aria-current] {
+      text-decoration: 2px underline var(--main-500);
+      text-underline-offset: 8px;
+    }
+  }
+}
+
+/* bulk content */
+p, li {
+  strong { color: var(--neutral-800) };
+}
+
+/* ___ LAYOUT ___ */
+body {
+  background-color: var(--neutral-200);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  /*:last-child {*/
+  /*  margin-block-start: auto;*/
+  /*}*/
+
+  header > nav {
+    border-block-start: solid 2px var(--neutral-900);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem 1rem;
+  }
+  /* content area: hero and sections */
+  /*article {*/
+  /*  margin: 0 auto;*/
+  /*  /*max-width: 70ch;*/
+  /*  > * + * {*/
+  /*    margin-block-start: .5em;*/
+  /*  }*/
+  /*}*/
+  /**/
+
+  main {
+    flex-grow: 999;
+  }
+
+  /* global footer */
+  > footer {
+    align-self: end;
+    border-block-end: solid 2px var(--neutral-900);
+    min-width: 100%;
+
+    nav {
+      padding: .5rem 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      a { opacity: .8 }
+      a:hover { opacity: 1 }
+
+    }
+  }
+}
+
+blockquote {
+  border-left: 5px solid var(--main-500);
+  padding-left: 1.5em;
+  margin: 2.5em 0;
+
+  p {
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 110%;
+    color: var(--neutral-900);
+  }
+
+  mark {
+    padding: .1em .2em;
+    margin-inline: -.2em;
+  }
+}

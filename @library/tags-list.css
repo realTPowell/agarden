@@ -1,0 +1,17 @@
+.tags-list__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+
+  > * {
+    border: 1px solid var(--neutral-800);
+    padding-inline: .5rem;
+  }
+
+  > *:hover {
+    color: var(--main-500);
+    border: 1px solid var(--main-500);
+  }
+}

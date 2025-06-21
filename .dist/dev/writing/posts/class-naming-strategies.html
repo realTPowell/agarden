@@ -1,0 +1,356 @@
+<!doctype html>
+
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+<title>Tom Powell / Testing Markdown Styles</title>
+<meta name="generator" content="Nue v1.0.0-RC.3 (nuejs.org)">
+<meta name="date.updated" content="2025-05-05T17:10:08.867Z">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="There are lots of styles I might end up applying to a Markdown article, which all need to be designed coherently. This post uses pretty much all of them, so I can check they&apos;re working nicely.">
+<meta name="author" content="Tom Powell">
+<meta property="og:title" content="Testing Markdown Styles">
+<meta property="og:description" content="There are lots of styles I might end up applying to a Markdown article, which all need to be designed coherently. This post uses pretty much all of them, so I can check they&apos;re working nicely.">
+<meta property="og:image" content="https://simple-blog.nuejs.org/assets/img/og_emma.png">
+<meta property="article:published_time" content="Tue Aug 13 2024 01:00:00 GMT+0100 (British Summer Time)">
+<meta name="nue:components" content=" ">
+<meta name="nue:include" content="content cards motion components header">
+<meta name="nue:globals" content="@global assets">
+<meta name="nue:libs" content="@library">
+<link rel="icon" type="image/jpg" href="/assets/img/favicon.jpg">
+<style href="/@global/codeblocks.css">/* @global/codeblocks.css */
+
+</style>
+<style href="/@global/colors.css">/* @global/colors.css */
+:root {
+  --neutral-white: #fff;
+  --neutral-900: #f2eadf;
+  --neutral-800: #ccc5bc;
+  --neutral-700: #b2ada4;
+  --neutral-600: #807b75;
+  --neutral-500: #66625c;
+  --neutral-400: #33312e;
+  --neutral-300: #262522;
+  --neutral-200: #1a1817;
+  --neutral-100: #0d0c0b;
+  --main-900: #c5f7da;
+  --main-800: #a8facb;
+  --main-700: #8aedb4;
+  --main-600: #6aeaa0;
+  --main-500: #53d98b;
+  --main-400: #2dc36c;
+  --main-300: #17944b;
+  --main-200: #0d7338;
+  --main-100: #085629;
+}
+</style>
+<style href="/@global/images.css">/* @global/images.css */
+img {
+  vertical-align: middle;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+</style>
+<style href="/@global/layout.css">/* @global/layout.css */
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav :is(a) {
+  color: var(--neutral-900);
+  font-weight: 500;
+}
+
+nav :is(a)[aria-current] {
+  text-decoration: 2px underline var(--main-500);
+  text-underline-offset: 8px;
+}
+
+:is(p, li) strong {
+  color: var(--neutral-800);
+}
+
+body {
+  background-color: var(--neutral-200);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+body header > nav {
+  border-block-start: solid 2px var(--neutral-900);
+  display: flex;
+  justify-content: end;
+  align-items:  center;
+  gap: 1rem;
+  padding: .5rem 1rem;
+}
+
+body main {
+  flex-grow: 999;
+}
+
+body > footer {
+  border-block-end: solid 2px var(--neutral-900);
+  align-self:  end;
+  min-width: 100%;
+}
+
+body > footer nav {
+  display: flex;
+  align-items:  center;
+  gap: 1rem;
+  padding: .5rem 1rem;
+}
+
+body > footer nav a {
+  opacity: .8;
+}
+
+body > footer nav a:hover {
+  opacity: 1;
+}
+
+blockquote {
+  border-left: 5px solid var(--main-500);
+  margin: 2.5em 0;
+  padding-left: 1.5em;
+}
+
+blockquote p {
+  color: var(--neutral-900);
+  font-size: 110%;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+blockquote mark {
+  margin-inline-start: -.2em;
+  margin-inline-end: -.2em;
+  padding: .1em .2em;
+}
+</style>
+<style href="/@global/typography.css">/* @global/typography.css */
+@font-face {
+  font-family: Garamond;
+  src: url("/assets/fonts/ebgaramond-variablefont_wght-webfont.woff2") format(woff2), url("/assets/fonts/ebgaramond-variablefont_wght-webfont.woff") format(woff);
+}
+
+body {
+  color: var(--neutral-800);
+  font-family: EB Garamond, serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neutral-900);
+  font-family: Rethink Sans, sans-serif;
+}
+
+h1 {
+  letter-spacing: -2%;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h4, h5, h6 {
+  font-color: var(--neutral-800);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.7rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+.fs-small {
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.fs-tiny {
+  font-size: .6rem;
+  font-weight: 300;
+}
+</style>
+<style href="/@library/cards.css">/* @library/cards.css */
+:root {
+  --pink-gradient: linear-gradient(#e879f9, #ec4899);
+  --blue-gradient: linear-gradient(#0ea5e9, #67e8f9);
+}
+
+.pink, .blue {
+  background-image: var(--pink-gradient);
+  overflow: hidden;
+  border-radius: .8em;
+  margin: 1.5em 0 2em;
+  padding: 2em 0 0 2em;
+}
+
+:is(.pink, .blue) pre {
+  margin: 0;
+  padding: 2em;
+}
+
+:is(.pink, .blue) > * {
+  border-radius: .6em 0 0;
+}
+
+.blue {
+  background-image: var(--blue-gradient);
+}
+</style>
+<style href="/@library/content.css">/* @library/content.css */
+article {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+article section {
+  margin-block-start: 1em;
+}
+
+article section > * + * {
+  margin-block-start: .8em;
+}
+
+article a {
+  text-decoration: underline var(--main-500) 1px;
+  text-underline-offset: 3px;
+  color: var(--neutral-800);
+  font-weight: 500;
+}
+
+article a:hover {
+  text-decoration-color: var(--main-600);
+  text-decoration-thickness: 2px;
+  color: var(--neutral-900);
+}
+</style>
+<style href="/@library/header.css">/* @library/header.css */
+article header {
+  margin-block-start: 4rem;
+}
+
+article header .header__taglist span:not(:last-child):after {
+  content: ",";
+  color: var(--neutral-700);
+  padding-inline-end: .3rem;
+}
+</style>
+<link href="/@nue/syntax.css" rel="stylesheet">
+<script src="/@nue/hotreload.js" type="module"></script>
+<script src="/@nue/view-transitions.js" type="module"></script>
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Rethink+Sans:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    
+    <header>
+  <nav><a href="/">Home</a>
+<a href="/about/">About</a>
+<a href="/writing/">Writing</a></nav>
+</header>
+    
+    <main>
+    
+
+    <article>
+      <header>
+  <a href="/blog/"> &lt; Back </a>
+  <h1>Testing Markdown Styles</h1>
+  <p>
+    <time datetime="2024-08-13T00:00:00.000Z">August 13, 2024</time>
+    </p><div class="header__taglist">
+      <span class="header__tag"><a href>test1</a></span><span class="header__tag"><a href>test2</a></span>
+    </div>
+  <p></p>
+</header>
+      <section><p>There are lots of styles I might end up applying to a Markdown article, which all need to be designed coherently. This post uses pretty much all of them, so I can check they&apos;re working nicely.</p></section>
+
+<section><h2>General body content</h2>
+<p>Typical body content will just be long paragraphs like this, wihthout any specialised presentation. Within those, there are a number of decorations for text that need to be considered. Text could be <em>emphasised</em>, <strong>strong</strong>, <s>struck through</s>, <mark>marked</mark>, <q>quoted</q>, or inline <code>code</code>.</p>
+<p>Designers should have a strong handle on core CSS concepts like the box model, selectors, specificity and inheritance.</p>
+<blockquote><p>Here&apos;s a block quote, to test how these are presented. It&apos;s quite long, so hopefully it&apos;ll run over a couple of a lines, but I could always add some more. Within these, the same set of formatting could take place as in regular body content: Text could be <em>emphasised</em>, <strong>strong</strong>, ~<s>struck through</s>~, <mark>marked</mark>, <q>quoted</q>, or inline <code>code</code>.</p></blockquote>
+</section>
+
+<section><h2>More specific blocks</h2>
+<h3>Images</h3>
+<p>One specialised type of content that needs presenting is images. Really, we also need to test how captions etc. will work.</p>
+<figure><img loading="lazy" src="img/dashboard-1.png"></figure>
+<h3>Code blocks</h3>
+<p>Another type is code blocks, which probably have a lot of their own styling challenges.</p>
+<div class="blue"><pre><code language="js"><strong>function</strong> <b>toggleAttr</b><i>(</i>el<i>,</i> name<i>,</i> flag<i>)</i> <i>{</i>
+  flag <i>?</i> <b>el</b><i>.</i><b>setAttribute</b><i>(</i>name<i>,</i> <em>1</em><i>)</i> <i>:</i>  <b>el</b><i>.</i><b>removeAttribute</b><i>(</i>name<i>)</i>
+<i>}</i>
+
+<strong>function</strong> <b>restoreTabs</b><i>(</i>flags<i>)</i> <i>{</i>
+  <strong>const</strong> <b>panels</b> <i>=</i> <i>&#x24;</i><i>&#x24;</i><i>(</i><em>&apos;[role=tabpanel]&apos;</em><i>)</i>
+
+  <i>&#x24;</i><i>&#x24;</i><i>(</i><em>&apos;[role=tab]&apos;</em><i>)</i><i>.</i><b>forEach</b><i>(</i><i>(</i>el<i>,</i> i<i>)</i> <i>=</i><i>&gt;</i> <i>{</i>
+    <b>toggleAttr</b><i>(</i>el<i>,</i> <em>&apos;aria-selected&apos;</em><i>,</i> <b>flags</b><i>[</i>i<i>]</i><i>)</i>
+    <b>toggleAttr</b><i>(</i><b>panels</b><i>[</i>i<i>]</i><i>,</i> <em>&apos;hidden&apos;</em><i>,</i> <i>!</i><b>flags</b><i>[</i>i<i>]</i><i>)</i>
+  <i>}</i><i>)</i>
+<i>}</i></code></pre></div></section>
+
+<section><h2>Conclusion</h2>
+<p>In conclusion, thoughtfully naming CSS classes, IDs, and other selectors is an important part of keeping stylesheets scalable and maintainable. Use semantic, descriptive names that communicate what a selector is styling. Implement methodical naming conventions and structures for better organization.</p>
+<div class="pink"><pre><code language="css"><i>.</i>pink <i>{</i>
+  <b>background-image</b><i>:</i> <b>linear-gradient</b><i>(</i><strong>#e879f9</strong><i>,</i> <strong>#ec4899</strong><i>)</i><i>;</i>
+  <b>padding</b><i>:</i> <em>3em</em> <em>0</em> <em>0</em> <em>3em</em><i>;</i>
+  <b>border-radius</b><i>:</i> <i>.</i><em>8em</em><i>;</i>
+  <b>overflow</b><i>:</i> hidden<i>;</i>
+  <b>margin</b><i>:</i> <em>1.5em</em> <em>0</em> <em>2em</em><i>;</i>
+
+  pre <i>{</i>
+    <b>padding</b><i>:</i> <em>2em</em><i>;</i>
+    <b>margin</b><i>:</i> <em>0</em><i>;</i>
+  <i>}</i>
+<i>}</i></code></pre></div>
+<p>Avoid repetitive and overly specific names by separating structural styles from visual ones. And don&#x2019;t be afraid to chain multiple classes together for more modular and flexible selectors.</p></section>
+      
+    </article>
+
+    
+  </main>
+    <footer>
+  <nav><a href="//github.com/nuejs/nue/"><img src="/assets/img/github.svg" width="22" height="22" alt="Github Projects"></a>
+<a href="//linkedin.com/in/tipiirai"><img src="/assets/img/linkedin.svg" width="22" height="22" alt="LinkedIn profile"></a></nav>
+</footer>
+    
+  </body>
+
+</html>

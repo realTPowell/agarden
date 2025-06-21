@@ -1,0 +1,19 @@
+/* @library/tags-list.css */
+.tags-list__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: 0;
+}
+
+.tags-list__list > * {
+  border: 1px solid var(--neutral-800);
+  padding-inline-start: .5rem;
+  padding-inline-end: .5rem;
+}
+
+.tags-list__list > :hover {
+  color: var(--main-500);
+  border: 1px solid var(--main-500);
+}

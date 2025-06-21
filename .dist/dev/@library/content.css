@@ -1,0 +1,26 @@
+/* @library/content.css */
+article {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+article section {
+  margin-block-start: 1em;
+}
+
+article section > * + * {
+  margin-block-start: .8em;
+}
+
+article a {
+  text-decoration: underline var(--main-500) 1px;
+  text-underline-offset: 3px;
+  color: var(--neutral-800);
+  font-weight: 500;
+}
+
+article a:hover {
+  text-decoration-color: var(--main-600);
+  text-decoration-thickness: 2px;
+  color: var(--neutral-900);
+}
