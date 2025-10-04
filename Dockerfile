@@ -10,5 +10,6 @@ RUN [ "bun", "install", "-g", "nuekit" ]
 
 COPY . .
 
+RUN [ "nue", "build", "-p" ]
 EXPOSE 8083/tcp
-CMD [ "nue" ]
+CMD [ "nue", "-p" ]

@@ -8,11 +8,6 @@ services:
       - "traefik.http.routers.agarden.rule=Host(`trpowell.net`)"
       - "traefik.http.routers.agarden.entrypoints=websecure"
       - "traefik.http.routers.agarden.tls.certresolver=myresolver"
-      # redirecting http to https
-      - "traefik.http.routers.agarden-http.rule=Host(`localhost`)"
-      - "traefik.http.routers.agarden-http.entrypoints=web"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.guestbook-http.middlewares=redirect-to-https"
 
   reverse-proxy:
     image: traefik:v3.5
@@ -23,7 +18,11 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoints=web"
+      - "--entrypoints.websecure.http.tls=true"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      # Let's Encrypt configuration
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.myresolver.acme.email=trpowell@protonmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
@@ -31,7 +30,7 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - "./letsencrypt:/letsencrypt"
+      - ./letsencrypt:/letsencrypt
 
 volumes:
   letsencrypt:
