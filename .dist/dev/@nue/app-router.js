@@ -65,13 +65,15 @@ function init(root = document) {
       pushURLState(changes);
   });
 }
-addEventListener("popstate", (e) => {
-  const path = e.state?.path;
-  if (path && !matchesPath(path))
-    cleanup();
-  fire(e.state || {});
-});
-addEventListener("hmr", cleanup);
+if (typeof window == "object")
+  addEventListener("popstate", (e) => {
+    const path = e.state?.path;
+    if (path && !matchesPath(path))
+      cleanup();
+    fire(e.state || {});
+  });
+if (typeof window == "object")
+  addEventListener("hmr", cleanup);
 function fire(data) {
   const changes = { ...setStoreData(data), ...diff(curr_state, data) };
   if (!changes)

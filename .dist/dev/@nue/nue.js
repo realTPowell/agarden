@@ -353,8 +353,7 @@ function createApp(component, data = {}, deps = [], $parent = {}) {
     unmount() {
       try {
         self.root.remove();
-      } catch (e) {
-      }
+      } catch (e) {}
       impl.unmounted?.call(ctx, ctx);
       update();
     }

@@ -47,14 +47,35 @@ var Diff = function() {
   };
   return Diff2;
 }();
-function checkElementType(element) {
+function checkElementType(element, simplifiedCheck) {
   var arguments$1 = arguments;
+  if (simplifiedCheck === undefined) {
+    simplifiedCheck = false;
+  }
   var elementTypeNames = [];
-  for (var _i = 1;_i < arguments.length; _i++) {
-    elementTypeNames[_i - 1] = arguments$1[_i];
+  for (var _i = 2;_i < arguments.length; _i++) {
+    elementTypeNames[_i - 2] = arguments$1[_i];
   }
   if (typeof element === "undefined" || element === null) {
     return false;
+  }
+  if (simplifiedCheck) {
+    return elementTypeNames.some(function(elementTypeName) {
+      if (elementTypeName === "Element") {
+        return element.nodeType === 1 || typeof element.nodeName === "string" && element.nodeName !== "#text" && element.nodeName !== "#comment";
+      }
+      if (elementTypeName === "Text") {
+        return element.nodeType === 3 || element.nodeName === "#text";
+      }
+      if (elementTypeName === "Comment") {
+        return element.nodeType === 8 || element.nodeName === "#comment";
+      }
+      if (elementTypeName.startsWith("HTML") && elementTypeName.endsWith("Element")) {
+        var tagName = elementTypeName.slice(4, -7).toLowerCase();
+        return element.nodeName && element.nodeName.toLowerCase() === tagName;
+      }
+      return false;
+    });
   }
   return elementTypeNames.some(function(elementTypeName) {
     var _a, _b;
@@ -92,13 +113,13 @@ function objToNode(objNode, insideSvg, options) {
       });
     }
     if (options.valueDiffing) {
-      if (objNode.value && checkElementType(node, "HTMLButtonElement", "HTMLDataElement", "HTMLInputElement", "HTMLLIElement", "HTMLMeterElement", "HTMLOptionElement", "HTMLProgressElement", "HTMLParamElement")) {
+      if (objNode.value && checkElementType(node, options.simplifiedElementCheck, "HTMLButtonElement", "HTMLDataElement", "HTMLInputElement", "HTMLLIElement", "HTMLMeterElement", "HTMLOptionElement", "HTMLProgressElement", "HTMLParamElement")) {
         node.value = objNode.value;
       }
-      if (objNode.checked && checkElementType(node, "HTMLInputElement")) {
+      if (objNode.checked && checkElementType(node, options.simplifiedElementCheck, "HTMLInputElement")) {
         node.checked = objNode.checked;
       }
-      if (objNode.selected && checkElementType(node, "HTMLOptionElement")) {
+      if (objNode.selected && checkElementType(node, options.simplifiedElementCheck, "HTMLOptionElement")) {
         node.selected = objNode.selected;
       }
     }
@@ -132,32 +153,32 @@ function applyDiff(tree, diff, options) {
   }
   switch (action) {
     case options._const.addAttribute:
-      if (!node || !checkElementType(node, "Element")) {
+      if (!node || !checkElementType(node, options.simplifiedElementCheck, "Element")) {
         return false;
       }
       node.setAttribute(diff[options._const.name], diff[options._const.value]);
       break;
     case options._const.modifyAttribute:
-      if (!node || !checkElementType(node, "Element")) {
+      if (!node || !checkElementType(node, options.simplifiedElementCheck, "Element")) {
         return false;
       }
       node.setAttribute(diff[options._const.name], diff[options._const.newValue]);
-      if (checkElementType(node, "HTMLInputElement") && diff[options._const.name] === "value") {
+      if (checkElementType(node, options.simplifiedElementCheck, "HTMLInputElement") && diff[options._const.name] === "value") {
         node.value = diff[options._const.newValue];
       }
       break;
     case options._const.removeAttribute:
-      if (!node || !checkElementType(node, "Element")) {
+      if (!node || !checkElementType(node, options.simplifiedElementCheck, "Element")) {
         return false;
       }
       node.removeAttribute(diff[options._const.name]);
       break;
     case options._const.modifyTextElement:
-      if (!node || !checkElementType(node, "Text")) {
+      if (!node || !checkElementType(node, options.simplifiedElementCheck, "Text")) {
         return false;
       }
       options.textDiff(node, node.data, diff[options._const.oldValue], diff[options._const.newValue]);
-      if (checkElementType(node.parentNode, "HTMLTextAreaElement")) {
+      if (checkElementType(node.parentNode, options.simplifiedElementCheck, "HTMLTextAreaElement")) {
         node.parentNode.value = diff[options._const.newValue];
       }
       break;
@@ -168,7 +189,7 @@ function applyDiff(tree, diff, options) {
       node.value = diff[options._const.newValue];
       break;
     case options._const.modifyComment:
-      if (!node || !checkElementType(node, "Comment")) {
+      if (!node || !checkElementType(node, options.simplifiedElementCheck, "Comment")) {
         return false;
       }
       options.textDiff(node, node.data, diff[options._const.oldValue], diff[options._const.newValue]);
@@ -208,7 +229,7 @@ function applyDiff(tree, diff, options) {
       var parentRoute = route.slice();
       var c = parentRoute.splice(parentRoute.length - 1, 1)[0];
       node = getFromRoute(tree, parentRoute);
-      if (!checkElementType(node, "Element")) {
+      if (!checkElementType(node, options.simplifiedElementCheck, "Element")) {
         return false;
       }
       node.insertBefore(objToNode(diff[options._const.element], node.namespaceURI === "http://www.w3.org/2000/svg", options), node.childNodes[c] || null);
@@ -220,7 +241,7 @@ function applyDiff(tree, diff, options) {
       }
       var parentNode = node.parentNode;
       parentNode.removeChild(node);
-      if (checkElementType(parentNode, "HTMLTextAreaElement")) {
+      if (checkElementType(parentNode, options.simplifiedElementCheck, "HTMLTextAreaElement")) {
         parentNode.value = "";
       }
       break;
@@ -234,7 +255,7 @@ function applyDiff(tree, diff, options) {
         return false;
       }
       node.insertBefore(newNode, node.childNodes[c] || null);
-      if (checkElementType(node.parentNode, "HTMLTextAreaElement")) {
+      if (checkElementType(node.parentNode, options.simplifiedElementCheck, "HTMLTextAreaElement")) {
         node.parentNode.value = diff[options._const.value];
       }
       break;
@@ -909,12 +930,15 @@ function applyVirtual(tree, diffs, options) {
 }
 function nodeToObj(aNode, options) {
   if (options === undefined) {
-    options = { valueDiffing: true };
+    options = {
+      valueDiffing: true,
+      simplifiedElementCheck: true
+    };
   }
   var objNode = {
     nodeName: aNode.nodeName
   };
-  if (checkElementType(aNode, "Text", "Comment")) {
+  if (checkElementType(aNode, options.simplifiedElementCheck, "Text", "Comment")) {
     objNode.data = aNode.data;
   } else {
     if (aNode.attributes && aNode.attributes.length > 0) {
@@ -932,15 +956,15 @@ function nodeToObj(aNode, options) {
       });
     }
     if (options.valueDiffing) {
-      if (checkElementType(aNode, "HTMLTextAreaElement")) {
+      if (checkElementType(aNode, options.simplifiedElementCheck, "HTMLTextAreaElement")) {
         objNode.value = aNode.value;
       }
-      if (checkElementType(aNode, "HTMLInputElement") && ["radio", "checkbox"].includes(aNode.type.toLowerCase()) && aNode.checked !== undefined) {
+      if (checkElementType(aNode, options.simplifiedElementCheck, "HTMLInputElement") && ["radio", "checkbox"].includes(aNode.type.toLowerCase()) && aNode.checked !== undefined) {
         objNode.checked = aNode.checked;
-      } else if (checkElementType(aNode, "HTMLButtonElement", "HTMLDataElement", "HTMLInputElement", "HTMLLIElement", "HTMLMeterElement", "HTMLOptionElement", "HTMLProgressElement", "HTMLParamElement")) {
+      } else if (checkElementType(aNode, options.simplifiedElementCheck, "HTMLButtonElement", "HTMLDataElement", "HTMLInputElement", "HTMLLIElement", "HTMLMeterElement", "HTMLOptionElement", "HTMLProgressElement", "HTMLParamElement")) {
         objNode.value = aNode.value;
       }
-      if (checkElementType(aNode, "HTMLOptionElement")) {
+      if (checkElementType(aNode, options.simplifiedElementCheck, "HTMLOptionElement")) {
         objNode.selected = aNode.selected;
       }
     }
@@ -1119,13 +1143,13 @@ var stringToObj = function(html, options) {
 var DiffFinder = function() {
   function DiffFinder2(t1Node, t2Node, options) {
     this.options = options;
-    this.t1 = typeof Element !== "undefined" && checkElementType(t1Node, "Element") ? nodeToObj(t1Node, this.options) : typeof t1Node === "string" ? stringToObj(t1Node, this.options) : JSON.parse(JSON.stringify(t1Node));
-    this.t2 = typeof Element !== "undefined" && checkElementType(t2Node, "Element") ? nodeToObj(t2Node, this.options) : typeof t2Node === "string" ? stringToObj(t2Node, this.options) : JSON.parse(JSON.stringify(t2Node));
+    this.t1 = typeof Element !== "undefined" && checkElementType(t1Node, this.options.simplifiedElementCheck, "Element") ? nodeToObj(t1Node, this.options) : typeof t1Node === "string" ? stringToObj(t1Node, this.options) : JSON.parse(JSON.stringify(t1Node));
+    this.t2 = typeof Element !== "undefined" && checkElementType(t2Node, this.options.simplifiedElementCheck, "Element") ? nodeToObj(t2Node, this.options) : typeof t2Node === "string" ? stringToObj(t2Node, this.options) : JSON.parse(JSON.stringify(t2Node));
     this.diffcount = 0;
     this.foundAll = false;
     if (this.debug) {
-      this.t1Orig = typeof Element !== "undefined" && checkElementType(t1Node, "Element") ? nodeToObj(t1Node, this.options) : typeof t1Node === "string" ? stringToObj(t1Node, this.options) : JSON.parse(JSON.stringify(t1Node));
-      this.t2Orig = typeof Element !== "undefined" && checkElementType(t2Node, "Element") ? nodeToObj(t2Node, this.options) : typeof t2Node === "string" ? stringToObj(t2Node, this.options) : JSON.parse(JSON.stringify(t2Node));
+      this.t1Orig = typeof Element !== "undefined" && checkElementType(t1Node, this.options.simplifiedElementCheck, "Element") ? nodeToObj(t1Node, this.options) : typeof t1Node === "string" ? stringToObj(t1Node, this.options) : JSON.parse(JSON.stringify(t1Node));
+      this.t2Orig = typeof Element !== "undefined" && checkElementType(t2Node, this.options.simplifiedElementCheck, "Element") ? nodeToObj(t2Node, this.options) : typeof t2Node === "string" ? stringToObj(t2Node, this.options) : JSON.parse(JSON.stringify(t2Node));
     }
     this.tracker = new DiffTracker;
   }
@@ -1442,18 +1466,15 @@ var DEFAULT_OPTIONS = {
   maxDepth: false,
   maxChildCount: 50,
   valueDiffing: true,
+  simplifiedElementCheck: true,
   textDiff: function(node, currentValue, expectedValue, newValue) {
     node.data = newValue;
     return;
   },
-  preVirtualDiffApply: function() {
-  },
-  postVirtualDiffApply: function() {
-  },
-  preDiffApply: function() {
-  },
-  postDiffApply: function() {
-  },
+  preVirtualDiffApply: function() {},
+  postVirtualDiffApply: function() {},
+  preDiffApply: function() {},
+  postDiffApply: function() {},
   filterOuterDiff: null,
   compress: false,
   _const: false,
@@ -1537,7 +1558,7 @@ var TraceLogger = function() {
       obj = {};
     }
     var _this = this;
-    this.pad = "\u2502   ";
+    this.pad = "│   ";
     this.padding = "";
     this.tick = 1;
     this.messages = [];
@@ -1560,14 +1581,14 @@ var TraceLogger = function() {
         wrapkey(obj, key);
       }
     }
-    this.log("\u250C TRACELOG START");
+    this.log("┌ TRACELOG START");
   }
   TraceLogger2.prototype.fin = function(fn, args) {
     this.padding += this.pad;
-    this.log("\u251C\u2500> entering ".concat(fn), args);
+    this.log("├─> entering ".concat(fn), args);
   };
   TraceLogger2.prototype.fout = function(fn, result) {
-    this.log("\u2502<\u2500\u2500\u2518 generated return value", result);
+    this.log("│<──┘ generated return value", result);
     this.padding = this.padding.substring(0, this.padding.length - this.pad.length);
   };
   TraceLogger2.prototype.format = function(s, tick) {
@@ -1593,7 +1614,7 @@ var TraceLogger = function() {
       if (typeof v === "string") {
         return v;
       }
-      if (checkElementType(v, "HTMLElement")) {
+      if (checkElementType(v, true, "HTMLElement")) {
         return v.outerHTML || "<empty>";
       }
       if (v instanceof Array) {
@@ -1605,8 +1626,8 @@ var TraceLogger = function() {
     this.messages.push(this.format(s, this.tick++));
   };
   TraceLogger2.prototype.toString = function() {
-    var cap = "\xD7   ";
-    var terminator = "\u2514\u2500\u2500\u2500";
+    var cap = "×   ";
+    var terminator = "└───";
     while (terminator.length <= this.padding.length + this.pad.length) {
       terminator += cap;
     }
@@ -1614,7 +1635,9 @@ var TraceLogger = function() {
     this.padding = "";
     terminator = this.format(terminator, this.tick);
     this.padding = _;
-    return "".concat(this.messages.join("\n"), "\n").concat(terminator);
+    return "".concat(this.messages.join(`
+`), `
+`).concat(terminator);
   };
   return TraceLogger2;
 }();

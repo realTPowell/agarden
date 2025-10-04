@@ -1,14 +1,10 @@
 ---
 include: [ components, homepage, hero ]
-sections: [ hero-container, content ]
 subheader: false
 ---
-[hero]
-    ## this is my home on the internet
+# About
 
----
 ## About me
-
 
 ## About this site
 I want to see a more decentralised, ownership-focused future for the Internet. This site is my small way of manifesting that future, by learning to own my corner of the Internet, rather than renting it from one of a small handful of oligarchs.

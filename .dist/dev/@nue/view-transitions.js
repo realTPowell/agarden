@@ -9,14 +9,15 @@ var scrollPos = {};
 async function loadPage(path, replace_state) {
   dispatchEvent(new Event("before:route"));
   scrollPos[location.pathname] = window.scrollY;
-  if (!replace_state)
-    history.pushState({ path }, 0, path);
   const dom = mkdom(await getHTML(path));
   const title = $("title", dom)?.textContent;
   if (title)
     document.title = title;
   const query = '[name="nue:components"]';
-  $(query).content = $(query, dom).content;
+  const comps = $(query, dom);
+  if (!comps)
+    return location.href = path;
+  $(query).content = comps.content;
   for (const script of $$("script[src]", dom)) {
     await import(script.getAttribute("src"));
   }
@@ -32,6 +33,8 @@ async function loadPage(path, replace_state) {
     dispatchEvent(new Event(`route:${app || "home"}`));
     setActive(path);
   });
+  if (!replace_state)
+    history.pushState({ path }, 0, path);
 }
 function onclick(root, fn) {
   root.addEventListener("click", (e) => {

@@ -1,0 +1,31 @@
+name: build-and-push
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: ghcr.io
+  USER_NAME: ${{ github.actor }}
+  IMAGE_NAME: ${{ github.actor }}/agarden:latest
+
+jobs:
+  build-and-push:
+    name: build and push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: downcase IMAGE_NAME
+        run: |
+          echo "IMG_NAME_LC=${IMAGE_NAME@L}" >> "${GITHUB_ENV}"
+      - name: downcase USER_NAME
+        run: |
+          echo "USR_NAME_LC=${USER_NAME@L}" >> "${GITHUB_ENV}"
+      - name: Login
+        run: |
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u ${{ env.USR_NAME_LC }} --password-stdin
+      - name: build and push
+        run: |
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMG_NAME_LC }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMG_NAME_LC }}

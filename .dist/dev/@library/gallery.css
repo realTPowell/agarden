@@ -9,7 +9,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items:  end;
+  align-items:  start;
   gap: .5rem;
   padding: 0;
 }
@@ -17,7 +17,7 @@
 .gallery li a {
   transform-origin: right;
   display: flex;
-  border-inline-end: 2px solid var(--neutral-900);
+  border-inline-start: 2px solid var(--neutral-900);
   align-items:  center;
   gap: .5rem;
   width: -moz-fit-content;
@@ -28,7 +28,7 @@
 }
 
 .gallery li a:hover {
-  border-inline-end: 4px solid var(--main-500);
+  border-inline-start: 4px solid var(--main-500);
   transform: scale(1.01);
 }
 

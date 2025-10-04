@@ -22,9 +22,8 @@ og: /assets/img/og.jpg
 
 navigation:
   header:
-    - Home: /
-    - About: /about/
-    - Writing: /writing/
+    - agarden: /
+    - by Tom Powell: /about/
 
   footer:
     - image: /assets/img/github.svg

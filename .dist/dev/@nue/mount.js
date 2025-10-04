@@ -65,9 +65,7 @@ async function mountAll(hmr_path) {
     if (comp) {
       const app = createApp(comp, data, lib).mount(node);
       apps.push(app);
-    } else if (customElements.get(name)) {
-    } else {
-    }
+    } else if (customElements.get(name)) {} else {}
   }
 }
 async function unmountAll() {
