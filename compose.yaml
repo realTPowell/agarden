@@ -1,0 +1,36 @@
+services:
+  agarden:
+    container_name: agarden
+    image: ghcr.io/realtpowell/agarden:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.agarden.rule=Host(`localhost`)"
+      - "traefik.http.routers.agarden.entrypoints=websecure"
+      - "traefik.http.routers.agarden.tls.certresolver=myresolver"
+      # redirecting http to https
+      - "traefik.http.routers.agarden-http.rule=Host(`localhost`)"
+      - "traefik.http.routers.agarden-http.entrypoints=web"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.guestbook-http.middlewares=redirect-to-https"
+
+  reverse-proxy:
+    image: traefik:v3.5
+    command:
+      - "--api.insecure=false"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrpoints=web"
+      - "--certificatesresolvers.myresolver.acme.email=trpowell@protonmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - "./letsencrypt:/letsencrypt"
+
+volumes:
+  letsencrypt:
