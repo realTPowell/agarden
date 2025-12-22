@@ -10,10 +10,10 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aldridge.rule=Host(`trpowell.net`)"
-      - "traefik.http.routers.aldridge.entrypoints=websecure"
-      - "traefik.http.routers.aldridge.tls.certResolver=letsencrypt"
-      - "traefik.http.services.aldridge.loadbalancer.server.port=3000"
+      - "traefik.http.routers.agarden.rule=Host(`trpowell.net`)"
+      - "traefik.http.routers.agarden.entrypoints=websecure"
+      - "traefik.http.routers.agarden.tls.certResolver=letsencrypt"
+      - "traefik.http.services.agarden.loadbalancer.server.port=3000"
 networks:
   dokploy-network:
     external: true
