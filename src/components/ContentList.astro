@@ -1,0 +1,21 @@
+---
+import ContentItem from "./ContentItem.astro";
+
+const { posts } = Astro.props;
+---
+
+<ul>
+  {posts.map((post) => <ContentItem post={post} />)}
+</ul>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+  }
+</style>

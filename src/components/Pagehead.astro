@@ -1,0 +1,71 @@
+---
+const { title, date, tags } = Astro.props;
+---
+
+<div class="header__main">
+  <h1>{title}</h1>
+  <ul class="header__meta">
+    <li>
+      <strong>Published:</strong>
+      <time time="date">{date.toISOString().split("T")[0]}</time>
+    </li>
+    <!-- <li> -->
+    <!--   <strong>Tags:</strong> -->
+    <!--   <ul class="header__taglist"> -->
+    <!--     <li class="header__tag" :each="tag in tags"><a href="">{tag}</a></li> -->
+    <!--   </ul> -->
+    <!-- </li> -->
+  </ul>
+</div>
+
+<style>
+  @layer components {
+    .header__outer {
+      border: 2px solid var(--neutral-900);
+      padding: 2px;
+    }
+
+    .header__outer > div {
+      border: 1px solid var(--neutral-900);
+      padding: 0.5rem;
+    }
+
+    /* any div after the first shouldn't have a top border, to prevent double thickness */
+    .header__outer > :not(:first-child) {
+      border-block-start: none;
+    }
+
+    /* for each li in the metadata, other than the first, add a before as separator */
+    /* removing this for now, but may be needed once there are more attributes */
+
+    /* .header__meta > :not(:first-child):before { */
+    /* 	content: "\2022"; */
+    /* } */
+
+    ul.header__meta {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .header__meta li {
+      list-style: none;
+    }
+
+    /* for each li in the taglist, other than the first tag, add a before as separator */
+    /* used to be after, but creates an issue when only one item */
+    .header__taglist li:not(:first-child):before {
+      content: ", ";
+    }
+
+    ul.header__taglist {
+      padding: 0;
+      display: inline;
+      list-style-type: none;
+    }
+
+    .header__taglist li {
+      list-style: none;
+      display: inline;
+    }
+  }
+</style>

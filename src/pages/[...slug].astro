@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../components/Layout.astro";
+import Pagehead from "../components/Pagehead.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await Astro.props.post.render();
+---
+
+<Layout>
+  <Pagehead
+    title={post.data.title}
+    date={post.data.date}
+    tags={post.data.tags}
+  />
+  <article>
+    <Content />
+  </article>
+</Layout>

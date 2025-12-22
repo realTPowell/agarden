@@ -1,0 +1,38 @@
+/* Styling for content of posts */
+
+@layer content {
+  main {
+    margin-block: 3rem;
+    /* links */
+    a {
+      text-decoration: none;
+    }
+
+    /* images */
+    img {
+      border-radius: 8px;
+      vertical-align: middle;
+      max-width: 100%;
+      height: auto;
+    }
+
+    * + * {
+      margin-block-start: 0.7em;
+    }
+
+    article {
+      a {
+        text-decoration: underline var(--main-500) 1px;
+        text-underline-offset: 3px;
+        color: var(--neutral-800);
+        font-weight: 500;
+
+        &:hover {
+          text-decoration-color: var(--main-600);
+          text-decoration-thickness: 2px;
+          color: var(--neutral-900);
+        }
+      }
+    }
+  }
+}

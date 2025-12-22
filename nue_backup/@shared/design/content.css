@@ -1,0 +1,53 @@
+@layer settings, structure, content, components;
+
+/* Styling for content of posts */
+@layer content {
+
+  /* links */
+  a {
+    text-decoration: none;
+
+    /* navigational links */
+    nav & {
+      font-weight: 500;
+      color: var(--neutral-900);
+
+      &[aria-current] {
+        text-decoration: 2px underline var(--main-500);
+        text-underline-offset: 8px;
+      }
+    }
+  }
+
+  /* images */
+  img {
+    border-radius: 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+  }
+
+  article {
+
+    section {
+      margin-block-start: 1.8em;
+    }
+
+    section > * + * {
+      margin-block-start: .7em;
+    }
+
+    a {
+      text-decoration: underline var(--main-500) 1px;
+      text-underline-offset: 3px;
+      color: var(--neutral-800);
+      font-weight: 500;
+
+      &:hover {
+        text-decoration-color: var(--main-600);
+        text-decoration-thickness: 2px;
+        color: var(--neutral-900);
+      }
+    }
+  }
+}

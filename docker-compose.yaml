@@ -1,0 +1,19 @@
+services:
+  agarden:
+    env_file:
+      - path: .env
+    build: .
+    ports:
+      - "4321:4321"
+    restart: always
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aldridge.rule=Host(`trpowell.net`)"
+      - "traefik.http.routers.aldridge.entrypoints=websecure"
+      - "traefik.http.routers.aldridge.tls.certResolver=letsencrypt"
+      - "traefik.http.services.aldridge.loadbalancer.server.port=3000"
+networks:
+  dokploy-network:
+    external: true

@@ -1,0 +1,39 @@
+<!doctype html lib>
+<!-- <tags-list class='tags'> -->
+<!--   <p>So far, I've written about:</p> -->
+<!--   <ul class='tags-list__list'> -->
+<!--     <li :each='tag in tags'>{ tag }</li> -->
+<!--   </ul> -->
+<!---->
+<!--   <script> -->
+<!--     constructor({ posts }) { -->
+<!--       this.tags = posts.reduce( -->
+<!--         (tagsList, currentPost) => { -->
+<!--           if ( currentPost.tags )  {  -->
+<!--             return tagsList.concat(currentPost.tags) -->
+<!--           } else { return tagsList } -->
+<!--         }, -->
+<!--         [] -->
+<!--       ); -->
+<!--     } -->
+<!--   </script> -->
+<!-- </tags-list> -->
+<!---->
+<!---->
+<posts-list class=" gallery ">
+  <ul>
+    <li :each="post in posts">
+      <a href="{ post.url }">
+        <time datetime="{ post.date }">
+          {post.date.toISOString().split("T")[0]}
+        </time>
+        <h2>{ post.title }</h2>
+      </a>
+    </li>
+  </ul>
+</posts-list>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500" rel="stylesheet">

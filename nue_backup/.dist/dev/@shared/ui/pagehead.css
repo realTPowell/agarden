@@ -1,0 +1,48 @@
+/* @shared/ui/pagehead.css */
+@layer components {
+  .header__outer {
+    border: 2px solid var(--neutral-900);
+    padding: 2px;
+  }
+
+  .header__outer > div {
+    border: 1px solid var(--neutral-900);
+    padding: .5rem;
+  }
+
+  .header__outer > :not(:first-child) {
+    border-block-start: none;
+  }
+
+  .header__meta > :not(:last-child):after {
+    content: "•";
+  }
+
+  ul.header__meta {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .header__meta li {
+    list-style: none;
+  }
+
+  .header__meta li:not(:last-child):after {
+    content: "•";
+  }
+
+  ul.header__taglist {
+    padding: 0;
+    display: inline;
+    list-style-type: none;
+  }
+
+  .header__taglist li {
+    list-style: none;
+    display: inline;
+  }
+
+  .header__taglist li:not(:last-child):after {
+    content: ", ";
+  }
+}

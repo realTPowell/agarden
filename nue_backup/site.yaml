@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://json.schemastore.org/nuejs-site.json
+site:
+  view_transitions: true
+  native_css_nesting: true
+
+design:
+  inline_css: true
+
+content:
+  sections: true
+
+sitemap:
+  enabled: true
+
+meta:
+  title_template: "Tom Powell / %s"
+  og_image: /assets/img/og_emma.png
+  author: Tom Powell
+  favicon: /assets/img/favicon.jpg
+  description: Learning how to make a blog!
+
+collections:
+  posts:
+    include: [writing/posts/]
+    require: [date]
+    skip: [draft]
+    sort: date desc

@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../components/Layout.astro";
+import ContentList from "../components/ContentList.astro";
+
+const posts = await getCollection("writing");
+
+posts.sort((a, b) => {
+  b.data.date - a.data.date;
+});
+---
+
+<Layout>
+  <h1>agarden</h1>
+  <ContentList posts={posts} />
+</Layout>

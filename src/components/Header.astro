@@ -1,0 +1,22 @@
+<nav class="header">
+  <a href="/">agarden</a>
+  <a href="/about/">by Tom Powell</a>
+  <!-- eventually, show an icon, and make Admin sr-only -->
+</nav>
+
+<style>
+  .header {
+    padding: 0.5rem;
+  }
+
+  /* navigational links */
+  nav a {
+    font-weight: 500;
+    color: var(--neutral-900);
+
+    &[aria-current] {
+      text-decoration: 2px underline var(--main-500);
+      text-underline-offset: 8px;
+    }
+  }
+</style>

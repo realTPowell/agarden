@@ -1,0 +1,58 @@
+<ul class="footer">
+  <li><a href="/tos">Terms of Service</a></li>
+</ul>
+
+<style>
+  .footer {
+    padding: 0.5rem;
+    display: flex;
+    margin-top: auto;
+
+    align-self: end;
+    border-block-start: solid 1px var(--neutral-700);
+    min-width: 100%;
+    margin-block-start: 1em;
+
+    padding: .5rem 1rem;
+    margin-block-start: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    li {
+      list-style: none;
+      padding-inline: 0.25rem;
+      a:hover { opacity: 1 }
+
+      a {
+        opacity: .8;
+        font-weight: 500;
+        color: var(--neutral-900);
+
+        /* &[aria-current] { */
+        /*   text-decoration: 2px underline var(--main-500); */
+        /*   text-underline-offset: 8px; */
+        /* } */
+    }
+  }
+
+  /* global footer */
+  footer {
+    align-self: end;
+    border-block-end: solid 2px var(--neutral-900);
+    min-width: 100%;
+    margin-block-start: 1em;
+
+    nav {
+      padding: .5rem 1rem;
+      margin-block-start: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      a { opacity: .8 }
+      a:hover { opacity: 1 }
+    }
+  }
+
+</style>

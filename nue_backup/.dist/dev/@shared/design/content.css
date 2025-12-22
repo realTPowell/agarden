@@ -1,0 +1,46 @@
+/* @shared/design/content.css */
+@layer settings, structure, content, components;
+
+@layer content {
+  a {
+    text-decoration: none;
+  }
+
+  nav :is(a) {
+    font-weight: 500;
+    color: var(--neutral-900);
+  }
+
+  nav :is(a)[aria-current] {
+    text-decoration: 2px underline var(--main-500);
+    text-underline-offset: 8px;
+  }
+
+  img {
+    border-radius: 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+  }
+
+  article section {
+    margin-block-start: 1.8em;
+  }
+
+  article section > * + * {
+    margin-block-start: .7em;
+  }
+
+  article a {
+    text-decoration: underline var(--main-500) 1px;
+    text-underline-offset: 3px;
+    color: var(--neutral-800);
+    font-weight: 500;
+  }
+
+  article a:hover {
+    text-decoration-color: var(--main-600);
+    text-decoration-thickness: 2px;
+    color: var(--neutral-900);
+  }
+}

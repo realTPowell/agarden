@@ -1,15 +1,25 @@
-FROM oven/bun
+FROM node:lts AS base
+WORKDIR /app
 
-LABEL org.opencontainers.image.source=https://github.com/realtpowell/agarden
+# By copying only the package.json and package-lock.json here, we ensure that the following `-deps` steps are independent of the source code.
+# Therefore, the `-deps` steps will be skipped if only the source code changes.
+COPY package.json package-lock.json ./
 
-# Ensure `bun install -g` works correctly
-ARG BUN_INSTALL_BIN=/usr/local/bin/
-ENV BUN_INSTALL_BIN=${BUN_INSTALL_BIN}
+FROM base AS prod-deps
+RUN npm install --omit=dev
 
-RUN [ "bun", "install", "-g", "nuekit" ]
+FROM base AS build-deps
+RUN npm install
 
+FROM build-deps AS build
 COPY . .
+RUN npm run build
 
-RUN [ "nue", "build", "-p" ]
-EXPOSE 8083/tcp
-CMD [ "nue", "-p" ]
+FROM base AS runtime
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+
+ENV HOST=0.0.0.0
+ENV PORT=4321
+EXPOSE 4321
+CMD ["node", "./dist/server/entry.mjs"]

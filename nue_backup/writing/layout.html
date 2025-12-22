@@ -1,0 +1,16 @@
+<pagehead class=" header__outer ">
+  <div class="header__main">
+    <h1>{ title }</h1>
+    <ul class="header__meta">
+      <li><strong>Published:</strong> <time time="date">{date.toISOString().split("T")[0]}</time></li>
+      <li><strong>Tags:</strong>
+        <ul class="header__taglist">
+          <li class="header__tag" :each="tag in tags"><a href="">{tag}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="header_desc"> -->
+  <!--   { markdown(description) } -->
+  <!-- </div> -->
+</pagehead>
