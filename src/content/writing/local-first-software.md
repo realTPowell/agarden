@@ -76,27 +76,39 @@ The authors clarify that they do not use the term "ownership" to mean anything d
 
 ### Ideals
 
-1. No spinners
+1. **No spinners**
+
    Cloud apps inherently require that modifications and most lookups to data entail a round trip to the server, leaving the user with an experience of latency, loading and delay.
-2. Your work is not trapped on one device
+
+2. **Your work is not trapped on one device**
+
    Modern, multi-device workflows require that data can be synchronised across a set of devices. Most sync services entail a server copy somewhere, reintroducing the issues of conflicts and a source-of-truth, and often driving you back into the hands of a cloud app.
    Defining the hierarchy of such sets, and the trust between them, would be interesting. A user will typically have a personal mesh of devices that should have near-total synchronisation; but they may then belong to multiple wider networks (work, family) within which they want partial sync.
-3. The network is optional
-4. Seamless collaboration with your colleagues
+
+3. **The network is optional**
+4. **Seamless collaboration with your colleagues**
+
    I find it interesting, and a little odd, that they specifically choose the language of "colleagues". I don't see why these needs are necessarily restricted to the workplace, although of couse that's likely to be the most demanding use case.
-5. The Long Now
+
+5. **The Long Now**
+
    > When you **do some work** with local-first software, your work should continue to be accessible indefinitely, even after the company that produced the software is gone. \[emphasis mine\]
 
-As I noted under 4., I find the specific verbiage "do some work" here interesting, since it strikes me as a needless limitation of scope. Since they have made clear they're referring to fundamentally _creative_ activity, I would be interested to try to free the discussion from the terminology of work and production entirely.
-They point specifically to the shift that with "old-fashioned" software, even if the company making it goes bust (read also, degrades the product, changes the license etc), you can still run the last version; whereas with a cloud app, if they turn off that server, you are out of luck. There is interesting resonance here with the [Stop Killing Games](https://www.stopkillinggames.com/) campaign - another sphere in which companies moving the actual _content_ of their product out of the shipped entity (effectively an executable), and onto a service model where they retain the right to terminate that service long after purchase. 6. Security and privacy by default
-An incidental thought from reading this point:
+   As I noted under 4., I find the specific verbiage "do some work" here interesting, since it strikes me as a needless limitation of scope. Since they have made clear they're referring to fundamentally _creative_ activity, I would be interested to try to free the discussion from the terminology of work and production entirely.
 
-- "security" = protection from those you didn't give your data to;
-- "privacy" = protection from those you _did_ give your data to?
+   They point specifically to the shift that with "old-fashioned" software, even if the company making it goes bust (read also, degrades the product, changes the license etc), you can still run the last version; whereas with a cloud app, if they turn off that server, you are out of luck.
 
-7. You retain ultimate ownership and control
+   There is interesting resonance here with the [Stop Killing Games](https://www.stopkillinggames.com/) campaign - another sphere in which companies moving the actual _content_ of their product out of the shipped entity (effectively an executable), and onto a service model where they retain the right to terminate that service long after purchase.
+
+6. **Security and privacy by default**
+
+   An incidental thought from reading this point:
+   - "security" = protection from those you didn't give your data to;
+   - "privacy" = protection from those you _did_ give your data to?
+
+7. **You retain ultimate ownership and control**
+
    Again, they qualify that this is "ownership" in the sense of user _agency, autonomy and control_, meaning that:
-
-- you can create, copy and modify all data
-- the software does not restrict what you can do (NB: they phrase this as "no company restricts...")
-  - For example, PDF files can disable printing, e-Book readers can interfere with copy-paste, DRM on digital media can enforce a "digital lock".
+   - you can create, copy and modify all data
+   - the software does not restrict what you can do (NB: they phrase this as "no company restricts...")
+     - For example, PDF files can disable printing, e-Book readers can interfere with copy-paste, DRM on digital media can enforce a "digital lock".
