@@ -33,6 +33,12 @@
           color: var(--neutral-900);
         }
       }
+
+      blockquote {
+        border-inline-start: 4px solid var(--main-500);
+        padding-inline: 1rem;
+        padding-block: .5rem;
+      }
     }
   }
 }

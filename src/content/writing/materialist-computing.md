@@ -1,6 +1,6 @@
 ---
 title: "Talking about computers as if they were real"
-date: 2025-12-23
+date: 2026-01-02
 tags: ["article", "tech"]
 ---
 

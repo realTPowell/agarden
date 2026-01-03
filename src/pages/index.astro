@@ -6,7 +6,7 @@ import ContentList from "../components/ContentList.astro";
 const posts = await getCollection("writing");
 
 posts.sort((a, b) => {
-  b.data.date - a.data.date;
+  return new Date(b.data.date) - new Date(a.data.date);
 });
 ---
 

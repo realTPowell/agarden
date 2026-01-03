@@ -58,6 +58,34 @@ As examples of _creating files_:
 - social networking
 - ride sharing
 
+### Affordances of existing softwares
+
+In a later section of the white paper, the authors review various existing software solutions and paradigms, annotating how well they conform to the seven ideals (see [[#Ideals]] below). Some of the affordances or experience statements (positive or negative) that they highlight from those existing systems jump out at me.
+
+#### Cloud productivity tools
+
+Regarding existing cloud collaboration/productivity suites (Google Docs, Notion etc.), they observe:
+
+> As a user, you can trust that when you open a document on any device, you are seeing the most recent version.
+
+I think they're _very_ right in saying that this is a powerful affordance, that has generated huge leverage for these cloud apps. They also highlight that the increasing prevalence of "remote work and distributed teams" have made this kind of online collaboration more important. This is doubtless correct, but again I find the limitation of scope to this work environment a little unnecessary.
+
+The flipside of this affordance is a total, definitional loss of ownership and control; the way this experiene of live documents is provided is by storing the source of truth for what you create on a third-party server. The dependence on this external server is primary to the function of the tools. Products like Milanote or Figma offer paper-thin "desktop versions" which are literally just repackaged browser tabs. The moment you lose your connection to that server, "it becomes clear that your work was never _truly yours_".
+
+#### Git
+
+Regarding Git, which clearly meets many of their local-first principles, they highlight two key weaknesses:
+
+1. No capacity for synchronous collaboration, as it's fundamentally designed to excel at async.
+   - this is at odds with the high-value affordance of cloud apps noted above.
+2. Highly optimised for line-based text formats, at the grave expense of binary blobs (images, videos, CAD files), which cannot be meaningfully merged or edited.
+
+Interestingly, they observe here that despite how many software engineers work on creating online collaboration tools, they almost universally prefer local tools to create and edit their code. The article gives some imagined (but well grounded) justifications for not using web IDEs etc: "it's too slow"; "I don't trust it"; "I want my code on my machine". I think these are statements of desires/motivations that are probably much more universal if leant on correctly.
+
+#### Self-hosting
+
+There is an interesting comment on the possibility of self-hosting cloud app equivalents to regain the benefits of ownership. The authors say they don't believe self-hosting is a viable option for the majority of users, who generally don't want to take on the risk and time overhead of becoming their own sysadmin.
+
 ## Creative Work
 
 They make a point of highlighting that
