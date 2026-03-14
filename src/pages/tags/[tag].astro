@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../components/Layout.astro";
+import ContentList from "../../components/ContentList.astro";
+import TagList from "../../components/TagList.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing");
+
+  posts.sort((a, b) => {
+    return new Date(b.data.date) - new Date(a.data.date);
+  });
+
+  // Extract unique tags
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      tags,
+      posts: posts.filter((post) => post.data.tags.includes(tag)),
+    },
+  }));
+}
+---
+
+<Layout>
+  <h1>agarden</h1>
+  <div id="tag-filter">
+    See writing on:
+    <TagList tags={Astro.props.tags} activeTag={Astro.props.tag} />
+  </div>
+  <ContentList posts={Astro.props.posts} />
+</Layout>

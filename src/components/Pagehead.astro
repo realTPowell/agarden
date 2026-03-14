@@ -4,14 +4,15 @@ import TagList from "./TagList.astro";
 ---
 
 <div class="header__main">
+  <a class="back" href="/"> {"< Back"}</a>
   <h1>{title}</h1>
   <ul class="header__meta">
     <li class="meta">
-      <strong>Published</strong>
+      <strong>Published:</strong>
       <time time=`${date}`>{date.toISOString().split("T")[0]}</time>
     </li>
     <li class="meta">
-      <strong>Tags</strong>
+      <strong>Tags:</strong>
       <TagList tags={tags} />
     </li>
   </ul>
@@ -24,30 +25,41 @@ import TagList from "./TagList.astro";
     }
 
     .header__main > h1 {
-      border-inline-start: 2px solid var(--neutral-800);
-      padding-inline: 0.5rem;
+      border-inline: 2px solid var(--neutral-800);
+      padding: 0.5rem;
+      text-align: center;
     }
 
     .header__meta {
-      border-inline-start: 2px solid var(--neutral-800);
+      border-inline-end: 2px solid var(--neutral-800);
       display: flex;
       flex-direction: column;
+      align-items: end;
       gap: 0.5rem;
     }
 
     .meta {
       display: flex;
+      width: fit-content;
       /* margin-block: 0.5em; */
 
-      strong {
-        background-color: var(--neutral-800);
-        color: var(--neutral-100);
-      }
+      /* strong { */
+      /*   background-color: var(--neutral-800); */
+      /*   color: var(--neutral-100); */
+      /* } */
+      border: 1px solid var(--neutral-800);
+      border-inline-end: none;
 
       > * {
         padding-inline: 0.5ch;
-        border: 1px solid var(--neutral-800);
       }
+    }
+
+    .back {
+      border: 1px solid var(--neutral-800);
+      padding-inline: 0.5ch;
+      text-decoration: none;
+      color: var(--neutral-800);
     }
 
     ul.header__meta {

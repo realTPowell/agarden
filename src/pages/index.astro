@@ -2,15 +2,28 @@
 import { getCollection } from "astro:content";
 import Layout from "../components/Layout.astro";
 import ContentList from "../components/ContentList.astro";
+import TagList from "../components/TagList.astro";
 
 const posts = await getCollection("writing");
 
 posts.sort((a, b) => {
   return new Date(b.data.date) - new Date(a.data.date);
 });
+
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <Layout>
   <h1>agarden</h1>
+  <div id="tag-filter">
+    See writing on:
+    <TagList tags={tags} />
+  </div>
   <ContentList posts={posts} />
 </Layout>
+
+<style>
+  #tag-filter {
+    margin-block-end: 1rem;
+  }
+</style>

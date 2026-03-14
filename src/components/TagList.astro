@@ -1,13 +1,18 @@
 ---
 import Tag from "./Tag.astro";
-const { tags } = Astro.props;
+const { tags, activeTag } = Astro.props;
 ---
 
 <ul class="taglist">
   {
     tags.map((tag: string) => {
-      const i = <Tag tag={tag} />;
-      return <li>{i}</li>;
+      if (tag == activeTag) {
+        const i = <Tag tag={tag} active="True" />;
+        return <li>{i}</li>;
+      } else {
+        const i = <Tag tag={tag} />;
+        return <li>{i}</li>;
+      }
     })
   }
 </ul>
@@ -16,11 +21,12 @@ const { tags } = Astro.props;
   .taglist {
     list-style: none;
     display: flex;
-    white-space: collapse;
+    gap: 1ch;
+    padding-inline-start: 0px;
 
-    > :not(:first-child) {
-      padding-inline-start: 1ch;
-    }
+    /* > :not(:first-child) { */
+    /*   padding-inline-start: 1ch; */
+    /* } */
 
     > :not(:last-child):after {
       content: ",";

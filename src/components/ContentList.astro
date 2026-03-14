@@ -4,10 +4,10 @@ import ContentItem from "./ContentItem.astro";
 const { posts } = Astro.props;
 ---
 
-<ul class="contentlist">
+<ul id="contentlist">
   {
     posts.map((post) => (
-      <li>
+      <li data-tags={post.data.tags}>
         <ContentItem post={post} />
       </li>
     ))
@@ -15,7 +15,7 @@ const { posts } = Astro.props;
 </ul>
 
 <style>
-  .contentlist {
+  #contentlist {
     list-style: none;
     padding: 0;
     width: 100%;
