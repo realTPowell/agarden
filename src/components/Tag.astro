@@ -1,0 +1,20 @@
+---
+const {tag} = Astro.props
+---
+<Fragment>
+  <a href=`/?tags=${tag}`>{tag}</a>
+</Fragment>
+
+<style>
+a {
+  /* text-decoration: underline var(--main-500) 1px; */
+  /* text-underline-offset: 3px; */
+  color: var(--main-500);
+  font-weight: 500;
+
+  &:hover {
+    text-decoration-color: var(--main-600);
+    text-decoration-thickness: 2px;
+    color: var(--main-700);
+  }
+</style>

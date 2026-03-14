@@ -1,0 +1,29 @@
+---
+import Tag from "./Tag.astro";
+const { tags } = Astro.props;
+---
+
+<ul class="taglist">
+  {
+    tags.map((tag: string) => {
+      const i = <Tag tag={tag} />;
+      return <li>{i}</li>;
+    })
+  }
+</ul>
+
+<style>
+  .taglist {
+    list-style: none;
+    display: flex;
+    white-space: collapse;
+
+    > :not(:first-child) {
+      padding-inline-start: 1ch;
+    }
+
+    > :not(:last-child):after {
+      content: ",";
+    }
+  }
+</style>

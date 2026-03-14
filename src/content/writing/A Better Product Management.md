@@ -1,0 +1,15 @@
+---
+title: A Better Product Management
+date: 2026-01-11
+tags: ["PM"]
+---
+
+So, I've already written a long chunk extolling the value and beauty of product management done well. However, I also think an awful lot about the seemingly dire fate of our digital world. This has been aptly coined as the "Enshittification" of the Internet by Cory Doctorow, and it can be applied to most of the platforms, websites, softwares and digital experiences we now rely on. Ed Zitron has extended the concept of enshittification, by identifying how its drivers have become entrenched in the incentives of the tech industry, producing what he calls "The Rot Economy". A huge amount of this economy is made up of software and software development. And therefore, if you take my aggrandising of Product leadership seriously, we must conclude that this enshittification is resulting from the visionary pursuits of the world's most influential Product leaders.
+
+This conclusion is of course fairly naive. Although it's tremendously fashionable to present your company as a mission-driven, product-focused, visionary enterprise, where business is just an unfortunate, grubby necessity, no one should seriously believe this is what motivates Big Tech. These are fundamentally Late Capitalist enterprises, and the factors that make decisions are always ultimately denominated in dollars.
+
+For all my mythologising, a Product Manager spends just as much time ensuring that the vision they carry is going to drive the business' success, and that the business' bigwigs are properly convinced of this fact. The foundational texts on how to approach product management are written by alumni of Big Tech orthodoxy, and so many of them take as a starting point that your job is to alchemise the needs of customers and of the business into a product that benefits everyone. What saddens me about polemics like Ed Zitron's "The Rot Economy" is that I can so easily imagine the Product people behind these decisions earnestly convincing themselves that they're still building a greater good.
+
+I like to think about what the tech industry would look like if freed from the Rot Economy, and ideally freed from the pressures of Late Capitalism entirely. I try to imagine how we would organise all those brilliant designers and engineers, if we were to reorient our economy to properly serve our collective human wellbeing. I think for most people, corporate-nonsense job titles like "Product Managers" would be some of the first to go in this revolution, alongside the "Agile Coaches" and "Marketing Gurus". But as I've said in other writing, I really believe there is part of the Product leader's role which is essential to the fundamental creative enterprise of software, that shouldn't be washed away in our co-operative, socialist utopia.
+
+So, I want to try and envision what this profession should be, to serve that better economy. What has been missing from our principles and practices, to allow ourselves to become complicit in the enshittification of products we're supposed to be the champions of?

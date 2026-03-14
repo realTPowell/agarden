@@ -1,37 +1,38 @@
 ---
+import TagList from "./TagList.astro";
 const { post } = Astro.props;
 ---
 
-<li>
+<div class="content-container">
   <a href=`/${ post.id }`>
-    <time datetime="{ post.date }">
+    <time datetime=`${ post.data.date }`>
       {post.data.date.toISOString().split("T")[0]}
     </time>
     <h2>{post.data.title}</h2>
   </a>
-</li>
+</div>
 
 <style>
-  li a {
+  .content-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    display: flex;
     transition:
       transform 0.1s,
       border 0.1s;
     transform-origin: right;
-    display: flex;
     align-items: center;
     gap: 0.5rem;
     width: fit-content;
     padding-inline: 0.5rem;
     border-inline-start: 2px solid var(--neutral-900);
+
     &:hover {
       transform: scale(1.01);
       border-inline-start: 4px solid var(--main-500);
-    }
-
-    @media (width < 900) {
-      img {
-        display: none;
-      }
     }
   }
 

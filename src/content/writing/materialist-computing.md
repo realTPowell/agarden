@@ -1,7 +1,7 @@
 ---
 title: "Talking about computers as if they were real"
 date: 2026-01-02
-tags: ["article", "tech"]
+tags: ["tech"]
 ---
 
 I think we've slowly found ourselves in a place where the vast majority of people understand and talk about computers as something totally conceptual, bordering on magical thinking. The abstractions created through designed user experiences (which are great, and very important) have become so successful that they've totally insulated people from the very material reality of what software and digital services are.

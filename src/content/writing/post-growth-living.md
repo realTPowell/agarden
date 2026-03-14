@@ -50,3 +50,13 @@ p.49, _excellent_ point - so much of leftist thought (including mine by and larg
 ditto, look into William Morris and Edward Carpenter
 
 p.50, what was/is the Next System in the US?
+
+p.57, starred quote is v important
+
+p.59, I think observing this contradiction is a very sharp critique of liberal/neo-classical economics. Individuals are modelled as sacrosant and autonomous, maximising their own needs and wants, _but_ those needs and wants are axiomatically assumed to be contained to their own lives. That is, there's no allowance that an autonomous individual's desires may include consideration for their community or their environment. This is something like a simplifying mean-field assumption in the complex dynamics, effectively?
+
+ditto, This description of Marxism also feels very astute, perahps as to why this school of leftism often feels patronising to the gen pop?
+
+p.62, is this ZB quote to be understood as _descriptive_ of a current state, or _normative_ of how consumption inherently works? i.e. is "postmodern" acting as a temporal adjuective or an adjective describing the theoretical category of this statement?
+
+p.63, "come to assume accountability", interesting resonance with other ongoing theses?

@@ -1,5 +1,5 @@
 ---
-layout: "../../components/Layout.astro"
+layout: "../../components/FullpageLayout.astro"
 ---
 
 ## Digital Garden Terms of Service
@@ -8,9 +8,9 @@ With thanks to [swyxio](https://github.com/swyxio/digital-garden-tos) for the or
 
 ### For Visitors
 
-This is a [Digital Garden](https://joelhooks.com/digital-garden). This is my personal space for [Learning In Public](https://www.swyx.io/writing/learn-in-public). Everything is a work in progress, but I do not let perfectionism get in the way. That means that what you read here is not authoritative or complete, and is not representative of my best work.
+This is a [Digital Garden](https://joelhooks.com/digital-garden). This is my personal space for [Learning In Public](https://www.swyx.io/writing/learn-in-public). Everything is a work in progress, but I don't let perfectionism get in the way. That means that what you read here is not authoritative or complete, and is not representative of my best work.
 
-However, it is representative of my interests and current state of knowledge, and if you have the same interests, then this space is also yours to use as a reference. Feedback and social sharing is welcome - that is the whole point of being public!
+However, it is representative of my interests and current state of knowledge, and if you have the same interests, then this space is also yours to use as a reference. Feedback and social sharing is welcome - that is the whole point of being public.
 
 > Note that these terms make various references to feedback on this page. At the current time, I haven't provided any facility for this, so this is redundant! I intend to provide some basic feedback mechanism in due time, at which point I will update this accordingly.
 
@@ -26,7 +26,7 @@ Better yet, write a better version of what I did and publish it on your own Gard
 
 #### 3. Attribute, don't Plagiarize
 
-Don't plagiarize. You're welcome to quote, with attribution and a link back here. I don't waive copyright for commercial purposes. But feel free to share ideas and riff off of them.
+Don't plagiarize. You're welcome to quote, with attribution and a link back here. Feel free to share ideas and riff off of them.
 
 ---
 

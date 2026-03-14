@@ -1,5 +1,5 @@
 ---
-layout: "../../components/Layout.astro"
+layout: "../../components/FullpageLayout.astro"
 ---
 
 # About

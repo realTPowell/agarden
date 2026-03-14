@@ -4,12 +4,18 @@ import ContentItem from "./ContentItem.astro";
 const { posts } = Astro.props;
 ---
 
-<ul>
-  {posts.map((post) => <ContentItem post={post} />)}
+<ul class="contentlist">
+  {
+    posts.map((post) => (
+      <li>
+        <ContentItem post={post} />
+      </li>
+    ))
+  }
 </ul>
 
 <style>
-  ul {
+  .contentlist {
     list-style: none;
     padding: 0;
     width: 100%;
@@ -17,5 +23,9 @@ const { posts } = Astro.props;
     flex-direction: column;
     gap: 0.5rem;
     align-items: start;
+  }
+
+  li {
+    width: 100%;
   }
 </style>

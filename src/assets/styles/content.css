@@ -2,7 +2,7 @@
 
 @layer content {
   main {
-    margin-block: 3rem;
+    margin-block: 2rem;
     /* links */
     a {
       text-decoration: none;
@@ -16,11 +16,12 @@
       height: auto;
     }
 
-    * + * {
-      margin-block-start: 0.7em;
-    }
 
     article {
+      > * + * {
+        margin-block-start: 0.7em;
+      }
+
       a {
         text-decoration: underline var(--main-500) 1px;
         text-underline-offset: 3px;
