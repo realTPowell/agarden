@@ -92,11 +92,11 @@ They make a point of highlighting that
 
 > When we say “creative work,” we mean not just visual art, or music, or poetry — many other activities, such as explaining a technical topic, implementing an intricate algorithm, designing a user interface, or figuring out how to lead a team towards some goal are also creative efforts.
 
-I think this is very important. Connects to what Mackenzie Wark talks about in [Capital is Dead]('./capital-is-dead.md'), where she tries to set out 'hackers' as a newly emerged class, defined by sustaining their existence through more or less this category of "creative work". I'm not totally convinced that the 'hacker'/'vectoralist' concept she sets out has the legs to be adopted as a conscious class identity. However, I am very convinced that this is a meaningful, rapidly-changing subset of society (whether it's truly a Class in the Marxist sense is beyond me). LLMs and "AI" as a technology seem to threaten the work of that class, and provoke the possibility of radicalisation, just like industrial manufacturing radicalised textile workers in the 1800s ([Blood in the Machine]('./blood-in-the-machine.md')).
+I think this is very important. Connects to what Mackenzie Wark talks about in [[capital-is-dead:Capital is Dead]], where she tries to set out 'hackers' as a newly emerged class, defined by sustaining their existence through more or less this category of "creative work". I'm not totally convinced that the 'hacker'/'vectoralist' concept she sets out has the legs to be adopted as a conscious class identity. However, I am very convinced that this is a meaningful, rapidly-changing subset of society (whether it's truly a Class in the Marxist sense is beyond me). LLMs and "AI" as a technology seem to threaten the work of that class, and provoke the possibility of radicalisation, just like industrial manufacturing radicalised textile workers in the 1800s ([[blood-in-the-machine:Blood in the Machine]]).
 
 ### Ownership
 
-The references to this topic here make me all the more keen to read Molly White's [We need to talk about digital ownership](https://www.citationneeded.news/we-need-to-talk-about-digital-ownership/) again.
+The references to this topic here made me return to Molly White's [We need to talk about digital ownership](https://www.citationneeded.news/we-need-to-talk-about-digital-ownership/), which I have some notes on [here](/molly-white-digital-ownership.md).
 
 The authors clarify that they do not use the term "ownership" to mean anything defined by IP law; they are referring to "the creator's perceived relationship to the data".
 

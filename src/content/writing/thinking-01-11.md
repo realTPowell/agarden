@@ -4,10 +4,9 @@ date: 2026-01-11
 tags: []
 ---
 
-Trying to map a new nexus of ideas that's getting woven in to my thinking. Is it mission creep? or a promising direction for unpicking what I want to solve? For now, this is just a stream of consciousness of the ideas at play. It might be useful to try to mesh it with my earlier attempt at a [Problem Statement](/src/content/writing/problem-statement.md).
+Trying to map a new nexus of ideas that's getting woven in to my thinking. Is it mission creep? or a promising direction for unpicking what I want to solve? For now, this is just a stream of consciousness of the ideas at play. It might be useful to try to mesh it with my earlier attempt at a [[problem-statement:Problem Statement]].
 
-[AI as a cultural technology](/src/content/writing/AI%2C%20Cultural%20Technologies%2C%20Abstraction.md).
-
+[[ai-cultural-technologies:AI as a cultural technology]]
 - This implies that "knowledge work"/creative work as I've thought of it elsewhere are threaten with displacement by a cultural technology. By analogy to the displacement of manufacturing by technology in the (last?) Industrial Revolution, is it appropriate to call knowledge work "cultural production"?
 
 Unaccountability as a fundamental malaise, or a failing of our prevailing cultural technologies. This stands to be exacerbated, perhaps critically, by the addition of AI.

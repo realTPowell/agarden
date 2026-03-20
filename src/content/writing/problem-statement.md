@@ -8,7 +8,7 @@ Trying to consolidate some meditations on the loose web of topics that I'm inter
 
 A 'mood board' of those many racing threads:
 
-- A theory of our information (post-)capitalism that really resonates (see ['Capital is Dead']('./capital-is-dead.md') on Marx' revolutionary act of describing his present).
+- A theory of our information (post-)capitalism that really resonates (see [[capital-is-dead:Capital is Dead]] on Marx' revolutionary act of describing his present).
 - The historical junction where democratising, emancipatory concepts of the internet failed to materialise, and were defeated by the centralised client-server patterns that have entrenched as Big Tech monopolies.
   - It feels like this junction was somewhere in the 90s - although it's worth asking whether it was real at all, or a post-facto myth of what could have been.
 - The possibilities for privacy-first/local-first/peer-to-peer movements to revive that vision today.
