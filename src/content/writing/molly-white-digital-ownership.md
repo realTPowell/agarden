@@ -2,6 +2,7 @@
 title: "Notes on Digital Ownership"
 date: 2026-01-01
 tags: ["article", "tech"]
+status: "growing"
 ---
 
 Notes while reading Molly White's article ['We need to talk about digital ownership'](https://www.citationneeded.news/we-need-to-talk-about-digital-ownership/).

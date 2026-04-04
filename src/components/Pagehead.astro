@@ -1,5 +1,5 @@
 ---
-const { title, date, tags } = Astro.props;
+const { title, date, tags, status } = Astro.props;
 import TagList from "./TagList.astro";
 ---
 
@@ -14,6 +14,10 @@ import TagList from "./TagList.astro";
     <li class="meta">
       <strong>Tags:</strong>
       <TagList tags={tags} />
+    </li>
+    <li class="meta">
+      <strong>Status:</strong>
+      <p>{status}</p>
     </li>
   </ul>
 </div>

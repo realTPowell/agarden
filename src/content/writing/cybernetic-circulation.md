@@ -2,6 +2,7 @@
 title: "'Cybernetic Circulation Complex'"
 date: 2025-11-09
 tags: ["book", "tech"]
+status: "new"
 ---
 
 By Alessandra Mularoni & Nick Witherford-Dyer

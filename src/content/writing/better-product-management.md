@@ -2,6 +2,7 @@
 title: A Better Product Management
 date: 2026-01-11
 tags: ["PM"]
+status: "new"
 ---
 
 So, I've already written a long chunk extolling the value and beauty of product management done well. However, I also think an awful lot about the seemingly dire fate of our digital world. This has been aptly coined as the "Enshittification" of the Internet by Cory Doctorow, and it can be applied to most of the platforms, websites, softwares and digital experiences we now rely on. Ed Zitron has extended the concept of enshittification, by identifying how its drivers have become entrenched in the incentives of the tech industry, producing what he calls "The Rot Economy". A huge amount of this economy is made up of software and software development. And therefore, if you take my aggrandising of Product leadership seriously, we must conclude that this enshittification is resulting from the visionary pursuits of the world's most influential Product leaders.

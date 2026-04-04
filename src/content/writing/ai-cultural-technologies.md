@@ -2,6 +2,7 @@
 title: AI, Cultural Technologies & Abstraction
 date: 2026-01-11
 tags: ["AI", "tech"]
+status: "growing"
 ---
 
 quotes/notes on "Large AI models are cultural and social technologies" by Henry Farrell, Alison Gopnik, Cosma Shalizi, James Evans

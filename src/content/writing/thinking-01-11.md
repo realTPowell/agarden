@@ -2,6 +2,7 @@
 title: Thinking, 11th Jan
 date: 2026-01-11
 tags: []
+status: "compost"
 ---
 
 Trying to map a new nexus of ideas that's getting woven in to my thinking. Is it mission creep? or a promising direction for unpicking what I want to solve? For now, this is just a stream of consciousness of the ideas at play. It might be useful to try to mesh it with my earlier attempt at a [[problem-statement:Problem Statement]].

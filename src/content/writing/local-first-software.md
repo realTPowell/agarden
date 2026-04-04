@@ -2,6 +2,7 @@
 title: "Local-first Software"
 date: 2025-12-23
 tags: ["article", "tech"]
+status: "growing"
 ---
 
 Notes on [Local-first software](https://www.inkandswitch.com/essay/local-first/), the excellent white-paper by [Ink and Switch](https://www.inkandswitch.com/).

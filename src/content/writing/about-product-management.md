@@ -2,6 +2,7 @@
 title: On Product Management
 date: 2026-01-11
 tags: ["PM"]
+status: "new"
 ---
 
 Still quite a loose idea. I really like being a Product Manager. I think the ethos of it is underappreciated. It gets drowned out by the corporate management bureaucracy nonsense - deadline-chasing, pencil-pushing, box-ticking bullshit. And in fairness, there certainly will be many people with this title who do the job exactly like that. In most cases, that's probably all they were hired to do, and all that their company imagines that someone in a Product leadership role should do. But done right, properly empowered, I think a Product Manager is something quite like a Director in more traditionally creative projects. Because although it's not creative in the artistic sense, the work of software is still to create something that didn't exist before.

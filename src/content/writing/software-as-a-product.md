@@ -2,6 +2,7 @@
 title: "Software-as-a-Product"
 date: 2026-01-02
 tags: ["tech", "product"]
+status: "new"
 ---
 
 I've been thinking a lot about the Software-as-a-Service (SaaS) model. For 2.5 years working in software product, on a SaaS product, I have barely questioned the received wisdom that this is just how you make software these days. But it very much seems that the SaaS model is the wedge that opened the door to blind acceptance of all our data living on the servers of Big Tech companies. So I think it's worth examining, perhaps only to verify that it is indeed an inevitable model - but hopefully, to realise that there are alternatives.

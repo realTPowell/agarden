@@ -3,6 +3,7 @@ title: "'Post-Growth Living'"
 date: 2026-01-09
 tags:
   - book
+status: "growing"
 ---
 
 Notes while reading Post-Growth Living by Kate Soper. Stream of thought for now, may condense when finished.

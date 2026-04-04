@@ -2,6 +2,7 @@
 title: Contested Reproduction & Copyleft
 date: 2026-03-15
 tags: [tech, IP]
+status: "growing"
 ---
 
 I recently had a discussion at the London Permacomputing Club about copyright, copyleft and the implications of IP. This was inspired by reading [The Telekommunist Manifesto][telekommunist] (TKM), a text referenced in Mckenzie Wark's [[capital-is-dead:Capital is Dead]]. I'll probably post my notes for and from that conversation alongside this. That conversation helped me realise that TKM's criticism of the (lack of) revolutionary potential of copyleft is very related to the idea of "contested reproduction" that Heron, Milburn and Russell discuss in Radical Abundance[^radical-abundance]. Is it acceptable for open source and free culture to exist in parallel with capital? If not, then it is valid to critique systems for these based on whether they can provide a sufficient ecosystem for _material reproduction_ for those who participate. Then, what systems or strategies might be able to provide this?

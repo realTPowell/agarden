@@ -20,6 +20,7 @@ const { Content } = await Astro.props.post.render();
     title={post.data.title}
     date={post.data.date}
     tags={post.data.tags}
+    status={post.data.status}
   />
   <article>
     <Content />

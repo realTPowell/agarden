@@ -2,6 +2,7 @@
 title: "Sketching an elephant"
 date: 2026-03-20
 tags: ["tech"]
+status: "growing"
 ---
 
 ## i.

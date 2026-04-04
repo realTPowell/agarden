@@ -2,6 +2,7 @@
 title: Beginnings
 date: 2025-11-01
 tags: ["agarden"]
+status: "compost"
 ---
 
 A blog needs a first post, and that post may as well be navel-gazing about the purpose of the blog itself.
