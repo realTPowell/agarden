@@ -3,16 +3,24 @@ import { getCollection } from "astro:content";
 import Layout from "../../components/Layout.astro";
 import ContentList from "../../components/ContentList.astro";
 import TagList from "../../components/TagList.astro";
+import IndexPage from "../../components/IndexPage.astro";
+
+const posts = await getCollection("writing");
+
+let tagSet = new Set(posts.flatMap((post) => post.data.tags));
+tagSet.delete("draft");
+
+const tags = [...tagSet];
 
 export async function getStaticPaths() {
   const posts = await getCollection("writing");
-
-  posts.sort((a, b) => {
-    return new Date(b.data.date) - new Date(a.data.date);
-  });
-
   // Extract unique tags
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+  let tagSet = new Set(posts.flatMap((post) => post.data.tags));
+  tagSet.delete("draft");
+
+  const tags = [...tagSet];
+
   return tags.map((tag) => ({
     params: { tag },
     props: {
@@ -23,34 +31,11 @@ export async function getStaticPaths() {
   }));
 }
 
-const new_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "new" ) && !(post.data.tags.includes("draft"))})
-const growing_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "growing" ) && !(post.data.tags.includes("draft"))})
-const bloom_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "bloom" ) && !(post.data.tags.includes("draft"))})
+const tag = Astro.props.tag;
 ---
 
 <Layout>
-  <h1>agarden</h1>
-  <div id="tag-filter">
-    See writing on:
-    <TagList tags={Astro.props.tags} activeTag={Astro.props.tag} />
-  </div>
-  { 
-    bloom_posts.length == 0 ? "" :
-      <h2>In Bloom</h2>
-      <ContentList posts={bloom_posts} />
-  }
-
-  { 
-    growing_posts.length == 0 ? "" :
-      <h2>Growing</h2>
-      <ContentList posts={growing_posts} />
-  }
-
-  { 
-    new_posts.length == 0 ? "" :
-      <h2>Newly Planted</h2>
-      <ContentList posts={new_posts} />
-  }
+  <IndexPage posts={posts} tags={tags} tag={tag} />
 </Layout>
 
 <style>

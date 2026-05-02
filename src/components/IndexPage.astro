@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import ContentList from "../components/ContentList.astro";
+import TagList from "../components/TagList.astro";
+
+let posts = Astro.props.posts;
+const tags = Astro.props.tags;
+const tag = Astro.props.tag
+
+posts.sort((a, b) => {
+  return new Date(b.data.date) - new Date(a.data.date);
+});
+
+if (tag) {
+  posts = posts.filter((post) => (post.data.tags.includes(tag)))
+}
+
+function filterPosts(postsList, category) {
+  return postsList.filter(
+    (post) => {
+      const matchesCategory = ( post.data.status == category )
+      const notDraft = !(post.data.tags.includes("draft"))
+
+      return matchesCategory && notDraft
+    }
+  )
+}
+
+const new_posts = filterPosts(posts, "new")
+const growing_posts = filterPosts(posts, "growing")
+const bloom_posts = filterPosts(posts, "bloom")
+---
+
+<h1>agarden</h1>
+<div id="tag-filter">
+  See writing on:
+  <TagList tags={tags} activeTag={tag}/>
+</div>
+{
+  bloom_posts.length == 0 ? "" :
+    <h2>In Bloom</h2>
+    <ContentList posts={bloom_posts} />
+}
+
+{
+  growing_posts.length == 0 ? "" :
+    <h2>Growing</h2>
+    <ContentList posts={growing_posts} />
+}
+
+{
+  new_posts.length == 0 ? "" :
+    <h2>Newly Planted</h2>
+    <ContentList posts={new_posts} />
+}
+
+<a href="/compost">the compost heap</a>
+
+<style>
+  #tag-filter {
+    margin-block-end: 1rem;
+  }
+</style>
