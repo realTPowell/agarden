@@ -11,6 +11,10 @@ posts.sort((a, b) => {
 });
 
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+const new_posts = posts.filter((post) => {return ( post.data.status == "new" ) && !(post.data.tags.includes("draft"))})
+const growing_posts = posts.filter((post) => {return ( post.data.status == "growing" ) && !(post.data.tags.includes("draft"))})
+const bloom_posts = posts.filter((post) => {return ( post.data.status == "bloom" ) && !(post.data.tags.includes("draft"))})
 ---
 
 <Layout>
@@ -19,7 +23,25 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
     See writing on:
     <TagList tags={tags} />
   </div>
-  <ContentList posts={posts} />
+  { 
+    bloom_posts.length == 0 ? "" :
+      <h2>In Bloom</h2>
+      <ContentList posts={bloom_posts} />
+  }
+
+  { 
+    growing_posts.length == 0 ? "" :
+      <h2>Growing</h2>
+      <ContentList posts={growing_posts} />
+  }
+
+  { 
+    new_posts.length == 0 ? "" :
+      <h2>Newly Planted</h2>
+      <ContentList posts={new_posts} />
+  }
+
+  <a href="/compost">the compost heap</a>
 </Layout>
 
 <style>

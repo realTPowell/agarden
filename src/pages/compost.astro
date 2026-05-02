@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../components/Layout.astro";
+import ContentList from "../components/ContentList.astro";
+
+const posts = await getCollection("writing");
+
+posts.sort((a, b) => {
+  return new Date(b.data.date) - new Date(a.data.date);
+});
+
+const compost_posts = posts.filter((post) => {return post.data.status == "compost"})
+---
+
+<Layout>
+  <h1>agarden</h1>
+  <h2>Compost Heap</h2>
+  { 
+  compost_posts.length == 0 ?
+    <p>Nothing on the heap right now.</p>:
+    <p>Things I haven't touched in a while, or no longer fully support, that might still feed something else one day.</p>
+    <ContentList posts={compost_posts} />
+  }
+</Layout>
+
+<style>
+  #tag-filter {
+    margin-block-end: 1rem;
+  }
+</style>

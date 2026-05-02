@@ -22,6 +22,10 @@ export async function getStaticPaths() {
     },
   }));
 }
+
+const new_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "new" ) && !(post.data.tags.includes("draft"))})
+const growing_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "growing" ) && !(post.data.tags.includes("draft"))})
+const bloom_posts = Astro.props.posts.filter((post) => {return ( post.data.status == "bloom" ) && !(post.data.tags.includes("draft"))})
 ---
 
 <Layout>
@@ -30,5 +34,27 @@ export async function getStaticPaths() {
     See writing on:
     <TagList tags={Astro.props.tags} activeTag={Astro.props.tag} />
   </div>
-  <ContentList posts={Astro.props.posts} />
+  { 
+    bloom_posts.length == 0 ? "" :
+      <h2>In Bloom</h2>
+      <ContentList posts={bloom_posts} />
+  }
+
+  { 
+    growing_posts.length == 0 ? "" :
+      <h2>Growing</h2>
+      <ContentList posts={growing_posts} />
+  }
+
+  { 
+    new_posts.length == 0 ? "" :
+      <h2>Newly Planted</h2>
+      <ContentList posts={new_posts} />
+  }
 </Layout>
+
+<style>
+  #tag-filter {
+    margin-block-end: 1rem;
+  }
+</style>

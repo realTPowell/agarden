@@ -1,7 +1,7 @@
 ---
 title: "Sketching an elephant"
 date: 2026-03-20
-tags: ["tech"]
+tags: ["tech", "draft"]
 status: "growing"
 ---
 
@@ -12,7 +12,6 @@ Futurelessness
 - we have lost a sense of the future, leaving us only the ever changing-present and the abstract 'always'
 - this is compounded by LMs, accelerating the ability to recombine the past far past human control
 - this is important; not just because we clearly face crisis in our near future which requires a culture which can dream how the world could be transformed, but because a common belief in the future is an institution of any communal collaboration.
-
 
 Capitalist Realism [^capitalist-realism]
 
