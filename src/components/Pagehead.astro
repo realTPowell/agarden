@@ -2,23 +2,21 @@
 const { title, date, tags, status } = Astro.props;
 import TagList from "./TagList.astro";
 import NavLeft from "../assets/images/nav-arrow-left.svg"
+import ContentIcon from "./ContentIcon.astro"
 ---
 
+<a class="back" href="/"><NavLeft/>Back</a>
 <div class="header__main">
-  <a class="back" href="/"> <NavLeft/> Back</a>
   <h1>{title}</h1>
   <ul class="header__meta">
     <li class="meta">
-      <strong>Published:</strong>
       <time time=`${date}`>{date.toISOString().split("T")[0]}</time>
     </li>
     <li class="meta">
-      <strong>Tags:</strong>
       <TagList tags={tags} />
     </li>
     <li class="meta">
-      <strong>Status:</strong>
-      <p>{status}</p>
+      <ContentIcon status={status}/>
     </li>
   </ul>
 </div>
@@ -29,6 +27,8 @@ import NavLeft from "../assets/images/nav-arrow-left.svg"
       display: flex;
       align-items: center;
       width: fit-content;
+      text-decoration: none;
+      color: var(--neutral-800);
     }
 
     .header__main {
@@ -36,16 +36,12 @@ import NavLeft from "../assets/images/nav-arrow-left.svg"
     }
 
     .header__main > h1 {
-      border-inline: 2px solid var(--neutral-800);
-      padding: 0.5rem;
-      text-align: center;
+      padding-block: 0.5rem;
+      /* text-align: center; */
     }
 
     .header__meta {
-      border-inline-end: 2px solid var(--neutral-800);
       display: flex;
-      flex-direction: column;
-      align-items: end;
       gap: 0.5rem;
     }
 
@@ -58,20 +54,12 @@ import NavLeft from "../assets/images/nav-arrow-left.svg"
       /*   background-color: var(--neutral-800); */
       /*   color: var(--neutral-100); */
       /* } */
-      border: 1px solid var(--neutral-800);
-      border-inline-end: none;
 
-      > * {
-        padding-inline: 0.5ch;
-      }
+      /* > * { */
+      /*   padding-inline: 0.5ch; */
+      /* } */
     }
 
-    .back {
-      border: 1px solid var(--neutral-800);
-      padding-inline: 0.5ch;
-      text-decoration: none;
-      color: var(--neutral-800);
-    }
 
     ul.header__meta {
       padding: 0;
