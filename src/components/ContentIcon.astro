@@ -1,0 +1,33 @@
+---
+import Note from "../assets/images/note.svg"
+import New from "../assets/images/new.svg"
+import Growing from "../assets/images/growing.svg"
+import Bloom from "../assets/images/bloom.svg"
+import Compost from "../assets/images/compost.svg"
+
+const { status } = Astro.props
+---
+<div id="icon-container">
+{ 
+  ((icon) => {
+    const result = ( icon === "new" ? <New/> :
+    icon === "growing" ? <Growing /> :
+    icon === "bloom" ? <Bloom />:
+    icon === "compost" ? <Compost />:
+    <Note /> )
+
+    return result
+  })(status) 
+}
+</div>
+
+<style>
+#icon-container {
+  width: 24px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+</style>
+

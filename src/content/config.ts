@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-const statuses = ["new", "growing", "bloom", "compost"]
+const statuses = ["note", "new", "growing", "bloom", "compost"]
 
 const writingCollection = defineCollection({
 	type: "content",

@@ -1,10 +1,11 @@
 ---
 const { title, date, tags, status } = Astro.props;
 import TagList from "./TagList.astro";
+import NavLeft from "../assets/images/nav-arrow-left.svg"
 ---
 
 <div class="header__main">
-  <a class="back" href="/"> {"< Back"}</a>
+  <a class="back" href="/"> <NavLeft/> Back</a>
   <h1>{title}</h1>
   <ul class="header__meta">
     <li class="meta">
@@ -24,6 +25,12 @@ import TagList from "./TagList.astro";
 
 <style>
   @layer components {
+    .back {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+    }
+
     .header__main {
       margin-block-end: 2rem;
     }

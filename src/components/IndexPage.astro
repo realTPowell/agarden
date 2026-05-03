@@ -18,7 +18,8 @@ if (tag) {
 function filterPosts(postsList, category) {
   return postsList.filter(
     (post) => {
-      const matchesCategory = ( post.data.status == category )
+      // can pass category = undefined to not filter on this element
+      const matchesCategory = (!category && post.data.status !== "compost") || ( post.data.status == category )
       const notDraft = !(post.data.tags.includes("draft"))
 
       return matchesCategory && notDraft
@@ -26,6 +27,7 @@ function filterPosts(postsList, category) {
   )
 }
 
+const all_posts = filterPosts(posts, undefined)
 const new_posts = filterPosts(posts, "new")
 const growing_posts = filterPosts(posts, "growing")
 const bloom_posts = filterPosts(posts, "bloom")
@@ -33,31 +35,45 @@ const bloom_posts = filterPosts(posts, "bloom")
 
 <h1>agarden</h1>
 <div id="tag-filter">
-  See writing on:
   <TagList tags={tags} activeTag={tag}/>
 </div>
-{
-  bloom_posts.length == 0 ? "" :
-    <h2>In Bloom</h2>
-    <ContentList posts={bloom_posts} />
-}
+<ContentList posts={all_posts}/>
+<!-- { -->
+<!--   bloom_posts.length == 0 ? "" : -->
+<!--     <h2>In Bloom</h2> -->
+<!--     <ContentList posts={bloom_posts} /> -->
+<!-- } -->
+<!---->
+<!-- { -->
+<!--   growing_posts.length == 0 ? "" : -->
+<!--     <h2>Growing</h2> -->
+<!--     <ContentList posts={growing_posts} /> -->
+<!-- } -->
+<!---->
+<!-- { -->
+<!--   new_posts.length == 0 ? "" : -->
+<!--     <h2>Newly Planted</h2> -->
+<!--     <ContentList posts={new_posts} /> -->
+<!-- } -->
 
-{
-  growing_posts.length == 0 ? "" :
-    <h2>Growing</h2>
-    <ContentList posts={growing_posts} />
-}
-
-{
-  new_posts.length == 0 ? "" :
-    <h2>Newly Planted</h2>
-    <ContentList posts={new_posts} />
-}
-
-<a href="/compost">the compost heap</a>
+<a id="compost" href="/compost">the compost heap</a>
 
 <style>
   #tag-filter {
-    margin-block-end: 1rem;
+    margin-block-end: 1.5rem;
+  }
+
+  #compost {
+    margin-block-start: 1.5rem;
+    text-decoration: underline var(--main-500) 1px;
+    text-underline-offset: 3px;
+    color: var(--neutral-800);
+    font-weight: 500;
+
+    &:hover {
+      text-decoration-color: var(--main-600);
+      text-decoration-thickness: 2px;
+      color: var(--neutral-900);
+    }
   }
 </style>

@@ -1,14 +1,16 @@
 ---
-import TagList from "./TagList.astro";
 const { post } = Astro.props;
+import ContentIcon from "./ContentIcon.astro";
 ---
 
 <div class="content-container">
   <a href=`/${ post.id }`>
+    <ContentIcon status={post.data.status} />
+    <!-- <div class={post.data.status} id="icon"></div> -->
+    <h2>{post.data.title}</h2>
     <time datetime=`${ post.data.date }`>
       {post.data.date.toISOString().split("T")[0]}
     </time>
-    <h2>{post.data.title}</h2>
   </a>
 </div>
 
@@ -23,10 +25,11 @@ const { post } = Astro.props;
     transition:
       transform 0.1s,
       border 0.1s;
-    transform-origin: right;
+    transform-origin: left;
     align-items: center;
+    justify-content: space-between;
     gap: 0.5rem;
-    width: fit-content;
+    width: 100%;
     padding-inline: 0.5rem;
     border-inline-start: 2px solid var(--neutral-900);
 
@@ -34,6 +37,17 @@ const { post } = Astro.props;
       transform: scale(1.01);
       border-inline-start: 4px solid var(--main-500);
     }
+  }
+
+  #icon {
+    width: 20px;
+    aspect-ratio: 1;
+
+    /* .new { */
+    /*   background-image: url("../assets/images/empty-page.svg"); */
+    /*   fill: var(--neutral-800); */
+    /*   stroke: var(--neutral-800); */
+    /* } */
   }
 
   time {
@@ -52,9 +66,6 @@ const { post } = Astro.props;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  p {
-    margin-block: 0.5em;
+    text-align: left;
   }
 </style>
