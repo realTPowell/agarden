@@ -1,7 +1,7 @@
 ---
 title: Mathematism, Breaking the (G)loom
-date: 2026-01-11
-tags: []
+date: 2026-05-30
+tags: ["tech", "maths"]
 status: "new"
 ---
 
