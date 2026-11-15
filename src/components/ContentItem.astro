@@ -1,12 +1,9 @@
 ---
 const { post } = Astro.props;
-import ContentIcon from "./ContentIcon.astro";
 ---
 
 <div class="content-container">
   <a href=`/${ post.id }`>
-    <ContentIcon status={post.data.status} />
-    <!-- <div class={post.data.status} id="icon"></div> -->
     <h2>{post.data.title}</h2>
     <time datetime=`${ post.data.date }`>
       {post.data.date.toISOString().split("T")[0]}
